@@ -27,6 +27,7 @@ export class AppComponent implements OnInit, AfterViewInit {
   Testimonialsrows2='360px'
   rowscont = '360';
   rows = '250px';
+  rowsdo='280'
   navdivhide = true;
   menu = false;
   guagetile = '';
@@ -143,7 +144,8 @@ export class AppComponent implements OnInit, AfterViewInit {
       ])
       .subscribe((result) => {
         this.cols = 3;
-        this.rows = '250px';
+        this.rows = '290px';
+        this.rowsdo='280'
         this.Testimonialscols2 = 3;
         this.projectscols2 = 2;
         this.cardhe = '';
@@ -183,17 +185,21 @@ export class AppComponent implements OnInit, AfterViewInit {
         }
         if (BP[Breakpoints.HandsetPortrait]) {
           console.log(BP + 'HP');
-          this.rows = '270px';
+          this.rows = '460px';
+          this.rowsdo='650px'
+          this.Testimonialsrows2='700px'
+this.  rowscont = '450px';
+
           this.cols = 1;
           this.Testimonialscols2 = 1;
           this.projectscols2 = 1;
-          this.projectsrows = '590px';
+          this.projectsrows = '800px';
           this.gaugerows = '300';
           this.gaugecol = 1;
-          this.resrows = '450';
+          this.resrows = '550px';
           this.cardhe = 'cardhe';
           this.a2port = 'a2port';
-          this.rows2 = '500px';
+          this.rows2 = '600px';
           this.menu = true;
           this.navdivhide = false;
           this.guagetile = 'auto';
@@ -203,7 +209,9 @@ export class AppComponent implements OnInit, AfterViewInit {
           this.a2port = 'a2hand';
           this.guagetile = 'auto';
           this.gaugerows = '300';
-          this.resrows = '330';
+          this.resrows = '380';
+          this.rowsdo='350px'
+
           this.cols = 1;
           this.Testimonialscols2 = 1;
           this.projectscols2 = 1;
