@@ -1,1 +1,401 @@
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use "~@angular/material" as mat;
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat.core();
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$MySite-primary: mat.define-palette(mat.$blue-gray-palette, 900);
+$MySite-accent: mat.define-palette(mat.$blue-gray-palette, A200, A100, A400);
+$MySite-warn: mat.define-palette(mat.$red-palette);
+//dark
+$dark-primary: mat.define-palette(mat.$teal-palette);
+$dark-accent: mat.define-palette(mat.$teal-palette);
+$dark-warn: mat.define-palette(mat.$red-palette);
+
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
+$MySite-theme: mat.define-light-theme(
+  (
+    color: (
+      primary: $MySite-primary,
+      accent: $MySite-accent,
+      warn: $MySite-warn,
+    ),
+  )
+);
+
+$MySite-dark-theme: mat.define-dark-theme(
+  (
+    color: (
+      primary: $dark-primary,
+      accent: $dark-accent,
+      warn: $dark-warn,
+    ),
+  )
+);
+
+@include mat.all-component-themes($MySite-theme);
+.example-spacer {
+  flex: 1 1 auto;
+}
+.darktheme {
+  @include mat.all-component-themes($MySite-dark-theme);
+}
 /* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+}
+$my-typography: mat.define-typography-level(
+  $font-family: Poppins,
+  $font-size: 15px,
+  $font-weight: 400,
+  $line-height: 1,
+  $letter-spacing: 1px,
+);
+$my-typography: mat.define-typography-config(
+  $font-family: "Poppins ",
+  $headline: mat.define-typography-level(48px, 1, 600),
+  $title: mat.define-typography-level(40px, 1, 600),
+  $subheading-2: mat.define-typography-level(32px, 1.4, 500),
+  $subheading-1: mat.define-typography-level(25px, 1.4, 500),
+  $body-1: mat.define-typography-level(18px, 1.4, 400),
+  $body-2: mat.define-typography-level(18px, 1, 400),
+  $button: mat.define-typography-level(18px, 1, 400),
+);
+@include mat.core($my-typography);
+
+mat-nav-list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  padding: 8px 16px;
+}
+
+img {
+  height: 320px;
+  width: 95%;
+}
+
+mat-nav-list a:active {
+  background-color: rgb(2, 80, 80) !important;
+}
+mat-nav-list a:hover {
+  background: teal;
+}
+span {
+  margin: 0 !important;
+}
+.menu {
+  padding: 5px;
+}
+
+a {
+  transition: 0.7s;
+  padding: 5px 15px;
+  margin: 2px;
+  text-decoration: none;
+  //color: inherit !important;
+}
+mat-toolbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+}
+.main {
+  margin: 65px 65px;
+}
+.main:nth-child(0) {
+  padding: 75px 0 0 10px !important;
+}
+mat-grid-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: 10px 5px;
+}
+section {
+  padding: 10px 10px;
+  max-width: 2200px;
+  margin: auto;
+}
+.about {
+  margin-top: 60px;
+}
+.section-title:before {
+  content: "";
+  display: inline-block;
+  width: 4px;
+  height: 45px;
+  background: teal;
+  position: absolute;
+  left: 5px;
+  top: -5px;
+}
+.tile {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.section-title {
+  position: relative;
+  margin: 10px 0px 10px !important;
+  padding: 0 15px;
+}
+p {
+  padding: 5px;
+  margin: 0 !important;
+}
+mat-icon {
+  height: 35px !important;
+  width: 35px !important;
+}
+.testmo {
+  box-shadow: 0 5px 15px teal;
+}
+h4 {
+  padding: 0 10px;
+  margin: 5px 5px;
+}
+mat-card {
+  position: relative;
+  max-width: 90%;
+  margin: auto;
+  min-height: 90%;
+}
+mat-card-subtitle {
+  padding-left: 10px;
+}
+.cardhe {
+  min-height: 425px;
+}
+.cardresumehe {
+  min-height: 125px;
+}
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #25808036;
+  overflow: hidden;
+  width: 100%;
+  height: 0;
+  transition: all 0.9s ease-in-out;
+}
+
+mat-card:hover .overlay {
+  z-index: 2;
+  height: 100%;
+}
+
+.text {
+  white-space: nowrap;
+  font-size: 20px;
+  position: absolute;
+  overflow: hidden;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+}
+.resume {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+.a2 {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: center;
+}
+.a2 a {
+  padding: 0;
+  position: absolute;
+}
+.a2port {
+  align-content: flex-start;
+}
+.a2hand {
+  width: 64%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  align-content: flex-start;
+}
+.side {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  height: 40px;
+  width: 100%;
+  background: linear-gradient(#bec3c4, #949495);
+  position: absolute;
+  top: 64px;
+  right: 0;
+}
+.side a mat-icon{
+  width: 25px !important;
+  height: 25px !important;
+  color: #b8ded9;
+}
+ngx-gauge {
+    margin-right: 2% !important;
+    width: 160px !important;
+    height: 135px !important;
+
+}
+.gauge {
+  margin-top: 1%;
+  margin-bottom: 2%;
+  margin-right: auto;
+  margin-left: auto;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 100%;
+}
+canvas {
+  width: 90% !important;
+  height: 90% !important;
+}
+.reading-block {
+  transform: translateY(40px) !important;
+  font-size: 1.1rem !important;
+}
+
+.reading-label {
+  transform: translate(-7px, 80px) !important;
+  font-size: 1rem !important;
+}
+.tileg{
+  width: 100%;
+  height: 100%;
+  position: relative;
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: flex-start;
+  align-items: center;
+  padding: auto;
+}
+.tilegauge{
+  width: 100%;
+  height: 100%;
+  position: relative;
+ // margin: 10px 30px 10px 40px;
+}
+.hg{
+  margin: 25px 10px;
+}
+.forms{
+  margin-top: 23px !important;
+  margin: 0px;
+  width: 80%;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  }
+  .name{
+  margin-top: 15px;
+  border-radius: 5px;
+  position: relative;
+  display: flex;
+  flex: auto;
+  min-width: 0;
+  width: 40%;
+  flex-direction: row;
+  flex-wrap: wrap;
+  flex: auto;
+  align-content: center;
+  align-items: center;
+  justify-content: flex-start;
+  margin-right: 20px;
+  }
+  .select{
+  width: 100%;
+  }
+  input{
+  border: 1px solid teal;
+  box-shadow: 0 2px 12px teal;
+  width: 100%;
+  height: 28px;
+  border-radius: 5px;
+  transition: width 1s, height 1s, transform 2s;
+
+  }
+  mat-select{
+  border: 1px solid teal;
+  box-shadow: 0 2px 12px teal;
+  width: 100%;
+  height: 28px;
+  border-radius: 5px;
+  transition: width 1s, height 1s, transform 2s;
+  }
+  mat-select mat-option{
+  outline: none;
+  border: 1px solid teal;
+  box-shadow: 0 2px 12px teal;
+  }
+  mat-select:focus-visible{
+  outline: -webkit-focus-ring-color auto 0px;
+  }
+  input:focus-visible{
+    outline: -webkit-focus-ring-color auto 0px;
+  }
+
+  textarea{
+  width: 100%;
+  height: 200px;
+  border: 1px solid teal;
+  box-shadow: 0 2px 12px teal;
+  border-radius: 5px;
+  }
+  textarea:focus-visible{
+  outline: -webkit-focus-ring-color auto 0px;
+  }
+  .textra{
+  margin-top: 15px;
+  border-radius: 5px;
+  position: relative;
+  display: flex;
+  flex: auto;
+  min-width: 0;
+  width: 100%;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: flex-start;
+  align-items: center;
+  margin-right: 20px;
+  }
