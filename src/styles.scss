@@ -11,13 +11,16 @@
 // Define the palettes for your theme using the Material Design palettes available in palette.scss
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue. Available color palettes: https://material.io/design/color/
-$MySite-primary: mat.define-palette(mat.$blue-gray-palette, 900);
-$MySite-accent: mat.define-palette(mat.$blue-gray-palette, A200, A100, A400);
+$MySite-primary: mat.define-palette(mat.$teal-palette);
+$MySite-accent: mat.define-palette(mat.$blue-gray-palette, A100, A200, A700);
 $MySite-warn: mat.define-palette(mat.$red-palette);
 //dark
-$dark-primary: mat.define-palette(mat.$teal-palette);
+$dark-primary: mat.define-palette(mat.$blue-gray-palette, 900);
 $dark-accent: mat.define-palette(mat.$teal-palette);
 $dark-warn: mat.define-palette(mat.$red-palette);
+$pink-primary: mat.define-palette(mat.$pink-palette);
+$blue-primary: mat.define-palette(mat.$blue-palette);
+$purple-primary: mat.define-palette(mat.$deep-purple-palette);
 
 // Create the theme object. A theme consists of configurations for individual
 // theming systems such as "color" or "typography".
@@ -41,12 +44,42 @@ $MySite-dark-theme: mat.define-dark-theme(
   )
 );
 
+
+.darktheme {
+  .mat-select-arrow {
+    color: gray !important;
+  }
+  .main {
+    background: #0d0b10 !important;
+    color: white;
+  }
+  input,
+  textarea {
+    background: #0d0b10;
+  }
+mat-card{
+  background: #0d0b10!important;
+  box-shadow: 0 2px 10px teal!important;
+}
+mat-option{
+  background: #0d0b10;
+  box-shadow: 0 1px 5px teal;
+}
+mat-option:hover{
+  background: #0d0b1091!important;
+}
+mat-option:active{
+  background: #0d0b1091!important;
+}
+  @include mat.all-component-themes($MySite-dark-theme);
+}
+
 @include mat.all-component-themes($MySite-theme);
 .example-spacer {
   flex: 1 1 auto;
 }
-.darktheme {
-  @include mat.all-component-themes($MySite-dark-theme);
+a {
+  color: #009688;
 }
 /* You can add global styles to this file, and also import other style files */
 
@@ -76,7 +109,28 @@ $my-typography: mat.define-typography-config(
   $button: mat.define-typography-level(18px, 1, 400),
 );
 @include mat.core($my-typography);
+::-webkit-scrollbar {
+  width: 5px;
+  background-color: #354b68;
+}
 
+::-webkit-scrollbar-track {
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #34c7c77c;
+  border-radius: 15px;
+}
+mat-icon{
+  color: teal;
+}
+.main {
+  padding: 65px 65px;
+}
+h1,h2,h3,h4,h5{
+  color: teal;
+}
 mat-nav-list {
   display: flex;
   flex-wrap: wrap;
@@ -85,8 +139,8 @@ mat-nav-list {
 }
 
 img {
-  height: 320px;
-  width: 95%;
+  height: 390px;
+  width: 100%;
 }
 
 mat-nav-list a:active {
@@ -116,9 +170,7 @@ mat-toolbar {
   right: 0;
   z-index: 2;
 }
-.main {
-  margin: 65px 65px;
-}
+
 .main:nth-child(0) {
   padding: 75px 0 0 10px !important;
 }
@@ -257,16 +309,15 @@ mat-card:hover .overlay {
   top: 64px;
   right: 0;
 }
-.side a mat-icon{
+.side a mat-icon {
   width: 25px !important;
   height: 25px !important;
   color: #b8ded9;
 }
 ngx-gauge {
-    margin-right: 2% !important;
-    width: 160px !important;
-    height: 135px !important;
-
+  margin-right: 2% !important;
+  width: 160px !important;
+  height: 135px !important;
 }
 .gauge {
   margin-top: 1%;
@@ -293,7 +344,7 @@ canvas {
   transform: translate(-7px, 80px) !important;
   font-size: 1rem !important;
 }
-.tileg{
+.tileg {
   width: 100%;
   height: 100%;
   position: relative;
@@ -306,16 +357,16 @@ canvas {
   align-items: center;
   padding: auto;
 }
-.tilegauge{
+.tilegauge {
   width: 100%;
   height: 100%;
   position: relative;
- // margin: 10px 30px 10px 40px;
+  // margin: 10px 30px 10px 40px;
 }
-.hg{
+.hg {
   margin: 25px 10px;
 }
-.forms{
+.forms {
   margin-top: 23px !important;
   margin: 0px;
   width: 80%;
@@ -325,8 +376,8 @@ canvas {
   align-items: center;
   flex-direction: row;
   flex-wrap: wrap;
-  }
-  .name{
+}
+.name {
   margin-top: 15px;
   border-radius: 5px;
   position: relative;
@@ -341,50 +392,49 @@ canvas {
   align-items: center;
   justify-content: flex-start;
   margin-right: 20px;
-  }
-  .select{
+}
+.select {
   width: 100%;
-  }
-  input{
+}
+input {
   border: 1px solid teal;
   box-shadow: 0 2px 12px teal;
   width: 100%;
   height: 28px;
   border-radius: 5px;
   transition: width 1s, height 1s, transform 2s;
-
-  }
-  mat-select{
+}
+.name mat-select {
   border: 1px solid teal;
   box-shadow: 0 2px 12px teal;
   width: 100%;
   height: 28px;
   border-radius: 5px;
   transition: width 1s, height 1s, transform 2s;
-  }
-  mat-select mat-option{
+}
+mat-select mat-option {
   outline: none;
   border: 1px solid teal;
   box-shadow: 0 2px 12px teal;
-  }
-  mat-select:focus-visible{
+}
+mat-select:focus-visible {
   outline: -webkit-focus-ring-color auto 0px;
-  }
-  input:focus-visible{
-    outline: -webkit-focus-ring-color auto 0px;
-  }
+}
+input:focus-visible {
+  outline: -webkit-focus-ring-color auto 0px;
+}
 
-  textarea{
+textarea {
   width: 100%;
   height: 200px;
   border: 1px solid teal;
   box-shadow: 0 2px 12px teal;
   border-radius: 5px;
-  }
-  textarea:focus-visible{
+}
+textarea:focus-visible {
   outline: -webkit-focus-ring-color auto 0px;
-  }
-  .textra{
+}
+.textra {
   margin-top: 15px;
   border-radius: 5px;
   position: relative;
@@ -398,4 +448,9 @@ canvas {
   justify-content: flex-start;
   align-items: center;
   margin-right: 20px;
-  }
+}
+.selecttheme {
+  width: 0%;
+  position: fixed;
+  right: 40px;
+}

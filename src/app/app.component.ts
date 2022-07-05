@@ -24,15 +24,14 @@ export class AppComponent implements OnInit, AfterViewInit {
   resrows = '260px';
   cardresumehe = 'cardresumehe';
   rows2 = '340px';
-  Testimonialsrows2='360px'
+  Testimonialsrows2 = '360px';
   rowscont = '360';
   rows = '250px';
-  rowsdo='280'
+  rowsdo = '280';
   navdivhide = true;
   menu = false;
   guagetile = '';
-  toggleControl = new FormControl(false);
-  @HostBinding('class') className = '';
+
   gauge = [
     { id: 1, gaugeValue: 85, gaugeLabel: 'Smart', gaugeAppendText: ' %' },
     { id: 2, gaugeValue: 95, gaugeLabel: 'Work', gaugeAppendText: ' %' },
@@ -43,10 +42,19 @@ export class AppComponent implements OnInit, AfterViewInit {
   ];
   intersted = ['BackEnd', 'FrontEnd', 'DataBase'];
 
-  backgroundColor = '#138d8d';
-  fgc = '#00c8c8';
+  backgroundColor = '#b6c6c6';
+  fgc = 'teal';
   thick = 8;
+  toggleControl = new FormControl(false);
+  @HostBinding('class') className = '';
+  themes = new FormControl('');
 
+  theme = [
+    { value: 'bluetheme', viewValue: 'blue' },
+    { value: 'pinktheme', viewValue: 'pink' },
+    { value: 'purpletheme', viewValue: 'purple' },
+    { value: 'theme', viewValue: 'main' },
+  ];
   constructor(
     private responsive: BreakpointObserver,
     private overlay: OverlayContainer,
@@ -122,6 +130,7 @@ export class AppComponent implements OnInit, AfterViewInit {
       sanitizer.bypassSecurityTrustResourceUrl('assets/svg/cl.svg')
     );
   }
+
   ngAfterViewInit(): void {
     AOS.init();
   }
@@ -135,6 +144,31 @@ export class AppComponent implements OnInit, AfterViewInit {
         this.overlay.getContainerElement().classList.remove(darkClassName);
       }
     });
+    // this.themes.valueChanges.subscribe((x) => {
+
+    //   if(!this.className){
+    //     const ClassName = x;
+    //     this.className = x ? ClassName : '';
+    //     if (x) {
+    //       this.overlay.getContainerElement().classList.add(ClassName);
+    //     } else {
+    //       this.overlay.getContainerElement().classList.remove(ClassName);
+    //     }
+    //     console.log(ClassName);
+
+    //   }
+    //   else{
+    //     const ClassName ='darktheme'+ x;
+    //     this.className = x ? ClassName : '';
+    //     if (x) {
+    //       this.overlay.getContainerElement().classList.add(ClassName);
+    //     } else {
+    //       this.overlay.getContainerElement().classList.remove(ClassName);
+    //     }
+    //     console.log(ClassName);
+    //   }
+    // });
+
     this.responsive
       .observe([
         Breakpoints.HandsetLandscape,
@@ -145,7 +179,7 @@ export class AppComponent implements OnInit, AfterViewInit {
       .subscribe((result) => {
         this.cols = 3;
         this.rows = '290px';
-        this.rowsdo='280'
+        this.rowsdo = '280';
         this.Testimonialscols2 = 3;
         this.projectscols2 = 2;
         this.cardhe = '';
@@ -154,7 +188,7 @@ export class AppComponent implements OnInit, AfterViewInit {
         this.gaugecol = 2;
         this.projectsrows = '450px';
         this.rows2 = '370px';
-        this.Testimonialsrows2='390px'
+        this.Testimonialsrows2 = '390px';
         this.menu = false;
         this.navdivhide = true;
         this.rescols = '2';
@@ -186,9 +220,9 @@ export class AppComponent implements OnInit, AfterViewInit {
         if (BP[Breakpoints.HandsetPortrait]) {
           console.log(BP + 'HP');
           this.rows = '460px';
-          this.rowsdo='650px'
-          this.Testimonialsrows2='700px'
-this.  rowscont = '450px';
+          this.rowsdo = '650px';
+          this.Testimonialsrows2 = '700px';
+          this.rowscont = '450px';
 
           this.cols = 1;
           this.Testimonialscols2 = 1;
@@ -210,7 +244,7 @@ this.  rowscont = '450px';
           this.guagetile = 'auto';
           this.gaugerows = '300';
           this.resrows = '380';
-          this.rowsdo='350px'
+          this.rowsdo = '350px';
 
           this.cols = 1;
           this.Testimonialscols2 = 1;

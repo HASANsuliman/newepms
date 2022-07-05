@@ -1,16 +1,4 @@
 <mat-toolbar color="primary">
-  <span class="mat-subheading-1" *ngIf="menu"> Hasan Sulaiman</span>
-  <span class="mat-subheading-1" *ngIf="navdivhide">Portfolio</span>
-  <span class="example-spacer"></span>
-  <mat-nav-list *ngIf="navdivhide" class="mat-body-2">
-    <a href="#About"> About</a>
-    <a href="#Port"> Portfolio</a>
-    <a href="#exp"> Experiance</a>
-    <a href="#Resume"> Resume</a>
-    <a href="#Contact"> Contact</a>
-  </mat-nav-list>
-  <span class="example-spacer"></span>
-  <mat-slide-toggle [formControl]="toggleControl"></mat-slide-toggle>
   <div class="menu" *ngIf="menu">
     <button mat-mini-fab [matMenuTriggerFor]="menu">
       <mat-icon>menu</mat-icon>
@@ -38,31 +26,32 @@
       </button>
     </mat-menu>
   </div>
-</mat-toolbar>
-<!-- <div class="side">
-        <a href="https://www.facebook.com/hassoon93" >
-          <mat-icon matListIcon svgIcon="face"> </mat-icon>
-        </a>
-        <a href="https://www.facebook.com/hassoon93">
-          <mat-icon matListIcon svgIcon="tele"></mat-icon>
-        </a>
-        <a href="mailto:hassnsuliman@gmail.com">
-          <mat-icon matListIcon svgIcon="mail"></mat-icon>
-        </a>
-        <a href="tel:+963934152254" >
-           <mat-icon matListIcon svgIcon="call"></mat-icon>
-        </a>
-        <a href="https://github.com/HASANsuliman?tab=repositories">
-          <mat-icon svgIcon="git"></mat-icon>
-        </a>
-        <a href="https://www.linkedin.com/in/hassn-suliman-26320b242?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BkjDEHGzfS6aAuJ6uPAWN2g%3D%3D"
-      >
-      <mat-icon svgIcon="lin"></mat-icon>
-      </a>
+  <span class="mat-subheading-1" *ngIf="menu"> Hasan Sulaiman</span>
+  <span class="mat-subheading-1" *ngIf="navdivhide">Portfolio</span>
+  <span class="example-spacer"></span>
+  <mat-nav-list *ngIf="navdivhide" class="mat-body-2">
+    <a href="#About"> About</a>
+    <a href="#Port"> Portfolio</a>
+    <a href="#exp"> Experiance</a>
+    <a href="#Resume"> Resume</a>
+    <a href="#Contact"> Contact</a>
+  </mat-nav-list>
+  <span class="example-spacer"></span>
 
-  </div> -->
+  <mat-slide-toggle [formControl]="toggleControl" *ngIf="toggleControl"></mat-slide-toggle>
+
+</mat-toolbar>
 
 <div class="main">
+  <!-- <div class="mat-body-1 selecttheme">
+
+       <mat-select  [formControl]="themes">
+      <mat-option *ngFor="let item of theme" [value]="item.value">
+        {{ item.viewValue }}</mat-option
+      >
+    </mat-select>
+
+  </div> -->
   <section id="About" data-aos="fade-up" data-aos-duration="1000">
     <mat-grid-list [cols]="cols" [rowHeight]="rows" class="about">
       <mat-grid-tile data-aos="fade-right" data-aos-duration="1000">
@@ -224,7 +213,8 @@
               <mat-card-title>
                 <h4>Aula Mhd</h4>
               </mat-card-title>
-              <mat-card-subtitle>Syriatel Company <br />Title: Senior software engineer
+              <mat-card-subtitle
+                >Syriatel Company <br />Title: Senior software engineer
               </mat-card-subtitle>
               <img mat-card-sm-image src="" />
             </mat-card-title-group>
@@ -246,7 +236,8 @@
               <mat-card-title>
                 <h4>Amro Daoud</h4>
               </mat-card-title>
-              <mat-card-subtitle>Syriatel Company <br />Title:Data engineer & Data Scince Expert
+              <mat-card-subtitle
+                >Syriatel Company <br />Title:Data engineer & Data Scince Expert
                 <br />
               </mat-card-subtitle>
               <img mat-card-sm-image src="" />
@@ -267,7 +258,8 @@
               <mat-card-title>
                 <h4>Amro Karouny</h4>
               </mat-card-title>
-              <mat-card-subtitle>Syriatel Company <br />Title:Data engineer & Data Scince Expert
+              <mat-card-subtitle
+                >Syriatel Company <br />Title:Data engineer & Data Scince Expert
               </mat-card-subtitle>
               <img mat-card-sm-image src="" />
             </mat-card-title-group>
@@ -289,7 +281,8 @@
               <mat-card-title>
                 <h4>Mhd Ismaiel</h4>
               </mat-card-title>
-              <mat-card-subtitle>Syriatel Company <br />Title: Senior software engineer
+              <mat-card-subtitle
+                >Syriatel Company <br />Title: Senior software engineer
               </mat-card-subtitle>
               <img mat-card-sm-image src="" />
             </mat-card-title-group>
@@ -311,7 +304,8 @@
               <mat-card-title>
                 <h4>Mhd Ismaiel</h4>
               </mat-card-title>
-              <mat-card-subtitle>Syriatel Company <br />Title: Senior software engineer
+              <mat-card-subtitle
+                >Syriatel Company <br />Title: Senior software engineer
               </mat-card-subtitle>
               <img mat-card-sm-image src="" />
             </mat-card-title-group>
@@ -528,13 +522,13 @@
             <mat-card-content>
               <p>
                 PMS An application that helps to create a broader understanding
-                of the offers offered  to build a database that
-                helps in the future to give better offers
+                of the offers offered to build a database that helps in the
+                future to give better offers
               </p>
               <h3>Description</h3>
               <p>
-                builds API and implement all functions
-                Building front end using angular 12 with Material design
+                builds API and implement all functions Building front end using
+                angular 12 with Material design
               </p>
             </mat-card-content>
           </mat-card>
@@ -588,7 +582,11 @@
         </div>
       </mat-grid-tile> -->
 
-      <mat-grid-tile data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="2000">
+      <mat-grid-tile
+        data-aos="flip-left"
+        data-aos-easing="ease-out-cubic"
+        data-aos-duration="2000"
+      >
         <div class="a1">
           <h2 class="section-title">Resume</h2>
           <p>Software Engineer For Syriatel Company<br /></p>
@@ -599,23 +597,25 @@
           </p>
         </div>
       </mat-grid-tile>
-      <mat-grid-tile data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="2000">
+      <mat-grid-tile
+        data-aos="flip-left"
+        data-aos-easing="ease-out-cubic"
+        data-aos-duration="2000"
+      >
         <div class="a2" [ngClass]="a2port">
+          <p><mat-icon>call</mat-icon><a href="tel:#"> +963 993 995199</a></p>
+
           <p>
-            <mat-icon>call</mat-icon><a href="tel:#"> +963 993 995199</a>
+            <mat-icon>mail</mat-icon
+            ><a href="mailto:#"> hassnsuliman50@gmail.com</a>
           </p>
 
           <p>
-            <mat-icon>mail</mat-icon><a href="mailto:#"> hassnsuliman50@gmail.com</a>
+            <mat-icon>website</mat-icon
+            ><a href="//https:www.portfolio.com">www.portfolio.com </a>
           </p>
 
-          <p>
-            <mat-icon>website</mat-icon><a href="//https:www.portfolio.com">www.portfolio.com </a>
-          </p>
-
-          <p>
-            <mat-icon>assistant_navigation</mat-icon><a> Damascus </a>
-          </p>
+          <p><mat-icon>assistant_navigation</mat-icon><a> Damascus </a></p>
         </div>
       </mat-grid-tile>
     </mat-grid-list>
@@ -714,9 +714,7 @@
     <mat-grid-list [cols]="gaugecol" [rowHeight]="rows2">
       <mat-grid-tile data-aos="zoom-out">
         <div class="tileg">
-          <h4>
-            <mat-icon>list</mat-icon>Sales Support 2022 Syriatel Company
-          </h4>
+          <h4><mat-icon>list</mat-icon>Sales Support 2022 Syriatel Company</h4>
           <p>
             <mat-icon>done</mat-icon>
             Monitor and maintain data for all web applications.
@@ -725,9 +723,7 @@
             <mat-icon>done</mat-icon>Building web applications to simplify works
             to watch
           </p>
-          <p>
-            <mat-icon>done</mat-icon> maintain all reports
-          </p>
+          <p><mat-icon>done</mat-icon> maintain all reports</p>
           <p>
             <mat-icon>done</mat-icon>Building new tools to maintain and organize
             sales database
@@ -763,11 +759,25 @@
     </div>
 
     <mat-grid-list [cols]="1" [rowHeight]="gaugerows">
-      <mat-grid-tile [ngStyle]="{ overflow: guagetile }" data-aos="flip-left" data-aos-duration="1000">
-        <div class="tilegauge">
-          <ngx-gauge *ngFor="let item of gauge" [type]="'arch'" [value]="item.gaugeValue" [foregroundColor]="fgc"
-            [backgroundColor]="backgroundColor" [thick]="thick" [cap]="'round'" [label]="item.gaugeLabel"
-            [append]="item.gaugeAppendText">
+      <mat-grid-tile
+        [ngStyle]="{ overflow: guagetile }"
+        data-aos="flip-left"
+        data-aos-duration="1000"
+      >
+        <div  class="tilegauge">
+          <ngx-gauge
+            *ngFor="let item of gauge"
+            [type]="'arch'"
+            [value]="item.gaugeValue"
+            [foregroundColor]="fgc"
+            [backgroundColor]="backgroundColor"
+            [thick]="thick"
+            [cap]="'round'"
+            [label]="item.gaugeLabel"
+            [append]="item.gaugeAppendText"
+            [animate]="true"
+            [duration]="2000"
+          >
           </ngx-gauge>
         </div>
       </mat-grid-tile>
@@ -789,19 +799,38 @@
       <mat-grid-tile>
         <div class="forms">
           <div class="name">
-            <input placeholder="Name" type="text" data-aos="flip-left" data-aos-duration="1000" />
+            <input
+              placeholder="Name"
+              type="text"
+              data-aos="flip-left"
+              data-aos-duration="1000"
+            />
           </div>
           <div class="name">
-            <input placeholder="Email" type="text" data-aos="flip-right" data-aos-duration="1000" />
+            <input
+              placeholder="Email"
+              type="text"
+              data-aos="flip-right"
+              data-aos-duration="1000"
+            />
           </div>
           <div class="name">
-            <input placeholder="Company" type="text" data-aos="flip-left" data-aos-duration="1000" />
+            <input
+              placeholder="Company"
+              type="text"
+              data-aos="flip-left"
+              data-aos-duration="1000"
+            />
           </div>
           <div class="name">
-            <mat-select placeholder=" Intersted" data-aos="flip-right" data-aos-duration="1000">
+            <mat-select
+              placeholder=" Intersted"
+              data-aos="flip-right"
+              data-aos-duration="1000"
+            >
               <mat-option *ngFor="let item of intersted" value="item">{{
                 item
-                }}</mat-option>
+              }}</mat-option>
             </mat-select>
             <!-- <select placeholder="Interested"  class="mat-form-field" ><option *ngFor="let item of intersted">{{item}}</option></select> -->
           </div>
